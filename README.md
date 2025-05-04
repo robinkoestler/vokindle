@@ -1,6 +1,21 @@
+Did you ever wanted to keep & organize your annotations from your Kindle, after having finished reading a book?
+
+Such a clean exporting functionality is now possible with:
+
 # Vokindle
 
 A Python tool to extract vocabulary and quotes from Kindle HTML exports, with optional translation support and statistics.
+
+## Features
+
+- Extract single-word highlights as a sorted vocabulary list
+- Extract multi-word highlights as quotes with metadata
+- Support for translations into multiple languages
+- Merge multiple Kindle exports into a single output, with duplicate handling
+- Detailed statistics
+- Clean output format with organized directory structure
+- Easy to use command-line interface
+- Python API for programmatic usage
 
 ## Installation
 
@@ -104,22 +119,6 @@ vokindle.save_stats('kindle.html')
 other_vokindle = Vokindle('another.html')
 merged = vokindle.merge_with(other_vokindle)
 ```
-
-## Features
-
-- Extract single-word highlights as vocabulary
-- Extract multi-word highlights as quotes with metadata
-- Support for multiple languages in translations
-- Progress bars for long-running operations
-- Merge multiple Kindle exports into a single output
-- Detailed statistics including:
-  - Total number of highlights
-  - Number of vocabulary words and quotes
-  - Pages covered
-  - Word frequency analysis
-- Clean output format with organized directory structure
-- Easy to use command-line interface
-- Python API for programmatic usage
 
 ## License
 
