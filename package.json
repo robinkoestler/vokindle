@@ -1,0 +1,18 @@
+{
+  "name": "vokindle",
+  "version": "1.0.0",
+  "description": "A tool to extract and process Kindle highlights",
+  "main": "src/index.js",
+  "bin": {
+    "vokindle": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": ["kindle", "highlights", "extraction"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
+} 
