@@ -4,122 +4,48 @@ Such a clean exporting functionality is now possible with:
 
 # Vokindle
 
-A Python tool to extract vocabulary and quotes from Kindle HTML exports, with optional translation support and statistics.
-
-## Features
-
-- Extract single-word highlights as a sorted vocabulary list
-- Extract multi-word highlights as quotes with metadata
-- Support for translations into multiple languages
-- Merge multiple Kindle exports into a single output, with duplicate handling
-- Detailed statistics
-- Clean output format with organized directory structure
-- Easy to use command-line interface
-- Python API for programmatic usage
+A command-line tool to extract and process Kindle highlights from HTML files.
 
 ## Installation
 
-1. Clone the repository.
-2. Navigate to the repository.
-3. Execute the following to install the package with all library dependencies.
-
 ```bash
-pip install -e .
+# Install globally
+npm install -g .
 ```
 
 ## Usage
 
-### Command Line Interface
-
-Basic usage with a single file:
+Basic usage:
 ```bash
-vokindle path/to/kindle.html
+vokindle extract "path/to/your/kindle-highlights.html"
 ```
 
-Process multiple files:
+With custom output path:
 ```bash
-vokindle file1.html file2.html file3.html
+vokindle extract "path/to/your/kindle-highlights.html" -o "output.txt"
 ```
 
-Merge multiple files into a single output:
+## Features
+
+- Extracts highlights from Kindle HTML export files
+- Removes HTML tags and formatting
+- Saves output as clean text
+- Supports custom output file paths
+
+## Development
+
+1. Clone the repository
+2. Install dependencies:
 ```bash
-vokindle file1.html file2.html --merge
+npm install
 ```
 
-Translate vocabulary to a different language:
+3. Make changes to `src/index.js`
+4. Reinstall globally to test changes:
 ```bash
-vokindle path/to/kindle.html --translate --target-lang fr
-```
-
-Extract only vocabulary:
-```bash
-vokindle path/to/kindle.html --vocab-only
-```
-
-Extract only quotes:
-```bash
-vokindle path/to/kindle.html --quotes-only
-```
-
-### Output Structure
-
-The tool creates the following directory structure:
-
-```
-output/
-├── stats/
-│   └── bookname_stats.json
-└── bookname/
-    ├── vocabulary.txt
-    └── quotes.txt
-```
-
-When merging multiple files:
-```
-output/
-├── stats/
-│   └── merged_book1_book2_stats.json
-└── merged_book1_book2/
-    ├── vocabulary.txt
-    └── quotes.txt
-```
-
-### Python API
-
-```python
-from vokindle import Vokindle
-
-# Initialize with single file
-vokindle = Vokindle('path/to/kindle.html')
-
-# Initialize with multiple files
-vokindle = Vokindle(['file1.html', 'file2.html'])
-
-# Initialize with custom target language
-vokindle = Vokindle('path/to/kindle.html', target_lang='fr')
-
-# Extract vocabulary
-vocab = vokindle.extract_vocabulary()
-
-# Extract quotes with metadata
-quotes = vokindle.extract_quotes()
-
-# Translate vocabulary
-translated_vocab = vokindle.translate_vocabulary()
-
-# Get statistics
-stats = vokindle.stats
-
-# Save outputs
-vokindle.save_vocabulary('kindle.html', translate=True)
-vokindle.save_quotes('kindle.html')
-vokindle.save_stats('kindle.html')
-
-# Merge with another instance
-other_vokindle = Vokindle('another.html')
-merged = vokindle.merge_with(other_vokindle)
+npm install -g .
 ```
 
 ## License
 
-MIT License 
+MIT 
